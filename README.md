@@ -56,21 +56,22 @@ Phantoma transforms a standard VPS into a fortified node. We don't just "encrypt
 | **Encryption** | Standard TLS | **AES-256-GCM + ECDH** |
 
 
+---
+
+## 🚀 Early Access Protocol
+
+Phantoma is currently in a **Private Early Access** phase. To maintain the structural integrity of our sovereign infrastructure and prioritize strategic partnerships, the deployment architecture is available via authorized credentials only.
+
+### Securing a Sovereign Node:
+1. **Request Access:** Contact our core team to verify your infrastructure requirements and sovereignty goals.
+2. **Architecture Validation:** We prioritize secure environments, enterprise-grade deployments, and sovereign entities.
+3. **Provisioning:** Authorized partners will receive a unique, signed installation signature for their designated VPS.
+
+**[ 🛰️ REQUEST EARLY ACCESS ](mailto:diego@phantomaplatforms.com?subject=Request%20Early%20Access%20-%20Phantoma)**
 
 ---
 
+## 📺 Infrastructure Demonstration
+Witness the transformation of a standard VPS into a Fortified Intelligence Node in our technical preview.
 
-
-
-
-## 🚀 The Alpha Protocol (Quick Start)
-
-
-
-Deploy your sovereign gateway on any clean Ubuntu 22.04+ VPS with one command.
-
-
-
-```bash
-
-curl -sSL [https://get.phantomaplatforms.com](https://get.phantomaplatforms.com) | sh --sovereign-modepersistence infrastructure layer to decouple intelligence from centralized surveillance. Deploy private AI bunkers on any VPS in seconds.
+**[ Watch the Phantoma Protocol in Action ](https://phantomaplatforms.com)**
