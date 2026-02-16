@@ -1,77 +1,36 @@
-# phantoma-gateway
-The Sovereign AI Gateway: A high-performance, zero-# PHANTOMA (Φ)
+# Phantoma Gateway: Self-Hosted Orchestration for Private AI
 
-### The Sovereign Intelligence Protocol
+Phantoma is a security-first orchestration layer designed to run high-performance AI models on your own private infrastructure. It acts as a **Shadow Gateway** between the user and the LLM, enforcing a strict cryptographic blockade on data egress.
 
+> **Status:** Alpha. We are looking for infrastructure partners to stress-test the first nodes.
 
+## 🚀 Show HN: Early Access Batch
+We are granting **3 early access licenses** to technical teams (Fintech, Health, Legal) to deploy Phantoma on their own private VPS. 
+* **Requirement:** Must provide your own infrastructure.
+* **Selection:** Based on the complexity of your threat model.
+* **Apply:** Open an issue with the tag `[Early Access]` or email `diego@phantomaplatforms.com`.
 
-> "Intelligence is a commodity. Sovereignty is a right."
+## 🛡️ Key Technical Pillars
 
+### 1. Atomic Ephemerality
+Unlike standard wrappers, Phantoma processes data strictly in volatile RAM. Upon task completion, the system triggers a hardware-level memory scrub to ensure zero data residue. No inference logs are written to disk.
 
+### 2. Zero-Trust Egress (The Shadow Gateway)
+Our egress controller acts as a kernel-level firewall. It monitors and blocks any unauthorized "phone home" calls from the AI node, ensuring that your data stays within your perimeter.
 
-[![Security: AES-256-GCM](https://img.shields.io/badge/Security-AES--256--GCM-blueviolet?style=for-the-badge)](#)
+### 3. Supply Chain Integrity
+All releases are signed using **Multi-Sig protocols** (Cosign/Sigstore). Every build includes a verifiable **SBOM** (Software Bill of Materials) to ensure transparency and prevent supply chain attacks.
 
-[![Infrastructure: Zero-Persistence](https://img.shields.io/badge/Infra-Zero--Persistence-black?style=for-the-badge)](#)
+## 🏗️ Repository Structure
 
-[![Compliance: Sovereign-Ready](https://img.shields.io/badge/Compliance-Sovereign--Ready-gold?style=for-the-badge)](#)
+* [**ARCHITECTURE.md**](./ARCHITECTURE.md): Deep dive into the Control Plane vs. Data Plane separation.
+* [**SECURITY.md**](./SECURITY.md): Threat model, signing keys, and vulnerability disclosure policy.
+* [**USE_CASES.md**](./USE_CASES.md): Real-world deployment scenarios for regulated industries.
 
-
-
----
-
-
-
-## 🏛 The Thesis
-
-Phantoma is a high-performance, shadow-gateway layer designed to decouple **Intelligence** from **Centralized Surveillance**. 
-
-
-
-Modern AI infrastructure forces enterprises to trade proprietary data for inference. Phantoma breaks this trade-off by providing a **Transparent Sovereignty Layer (TSL)**. Deploy private, hardened AI bunkers on any VPS infrastructure in seconds.
-
-
-
----
-
-
-
-## 🛡 Security Architecture
-
-
-
-Phantoma transforms a standard VPS into a fortified node. We don't just "encrypt" data; we make it invisible to the host provider.
-
-
-
-| Feature | Standard Cloud AI | Phantoma Protocol |
-
-| :--- | :--- | :--- |
-
-| **Data Residency** | Third-party Servers | **Your Sovereign VPS** |
-
-| **Data Persistence** | Permanent Logs | **Zero (Ephemeral Memory)** |
-
-| **Identity** | Corporate Fingerprinting | **Ghost Proxy Routing** |
-
-| **Encryption** | Standard TLS | **AES-256-GCM + ECDH** |
-
+## 🛠️ Tech Stack
+* **Orchestrator:** Written in high-performance [Language, e.g., Go/Rust/Python].
+* **Security Layer:** eBPF-based egress monitoring.
+* **Encryption:** AES-256-GCM for transport; ephemeral key rotation.
 
 ---
-
-## 🚀 Early Access Protocol
-
-Phantoma is currently in a **Private Early Access** phase. To maintain the structural integrity of our sovereign infrastructure and prioritize strategic partnerships, the deployment architecture is available via authorized credentials only.
-
-### Securing a Sovereign Node:
-1. **Request Access:** Contact our core team to verify your infrastructure requirements and sovereignty goals.
-2. **Architecture Validation:** We prioritize secure environments, enterprise-grade deployments, and sovereign entities.
-3. **Provisioning:** Authorized partners will receive a unique, signed installation signature for their designated VPS.
-
-**[ 🛰️ REQUEST EARLY ACCESS ](mailto:diego@phantomaplatforms.com?subject=Request%20Early%20Access%20-%20Phantoma)**
-
----
-
-## 📺 Infrastructure Demonstration
-Witness the transformation of a standard VPS into a Fortified Intelligence Node in our technical preview.
-
-**[ Watch the Phantoma Protocol in Action ](https://phantomaplatforms.com)**
+*Phantoma may make mistakes, but your data will always be safe.*
