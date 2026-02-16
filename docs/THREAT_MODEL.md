@@ -1,19 +1,18 @@
-# Phantoma Security & Threat Model
+# Phantoma Threat Model (STRIDE Analysis)
 
-Our security posture assumes a **Zero-Trust Environment**. We treat the Cloud Provider (AWS, GCP, DigitalOcean) as a potentially compromised entity.
+We operate under the assumption that the host environment (VPS) and the AI models themselves are potentially untrusted.
 
-## 1. Threat: Provider-Side Surveillance
-* **Description:** Cloud administrators or automated systems attempting to introspect RAM or logs.
-* **Mitigation:** Phantoma utilizes **Volatile Memory Segmentation** and strictly prohibits disk-swapping of AI processes.
+| Threat Category | Phantoma Mitigation Strategy |
+| :--- | :--- |
+| **Information Disclosure** | Data exists only in RAM (`tmpfs`). Secure memory wiping (shredding) post-inference. |
+| **Data Exfiltration** | **Shadow Gateway:** Kernel-level egress blockade prevents models from sending data to external IPs. |
+| **Tampering** | All binaries are Multi-Sig signed. Verifiable via Sigstore. |
+| **Privilege Escalation** | Phantoma runs in a rootless container environment with limited syscall access via seccomp profiles. |
 
-## 2. Threat: Man-in-the-Middle (MitM)
-* **Description:** Interception of prompts or completions during transit.
-* **Mitigation:** Enforced **AES-256-GCM** encryption with **Perfect Forward Secrecy (PFS)**. Each session uses unique, ephemeral keys.
+### Known Residual Risks (Out of Scope)
+- **Compromised Host Kernel:** If the underlying VPS kernel is compromised, Phantoma's eBPF guards could be bypassed. We recommend running on hardened kernels (e.g., HardenedLinux).
+- **Physical Access:** If an attacker has physical access to the server RAM while the process is active, cold-boot attacks are theoretically possible.
+- **Side-Channel Attacks:** We do not currently mitigate against advanced power-analysis or timing attacks on the CPU during inference.
 
-## 3. Threat: Corporate Fingerprinting
-* **Description:** AI providers tracking specific companies through IP and metadata analysis.
-* **Mitigation:** **Ghost Proxy Routing** masks the origin and identity of the request, making the VPS appear as a generic, non-attributable node.
-
-## 4. Threat: Data Persistence
-* **Description:** Residual data remaining on the server after a session ends.
-* **Mitigation:** Automated **Zero-Fill RAM Sanitization** upon process termination.
+---
+*Phantoma may make mistakes, but your data will always be safe.*
